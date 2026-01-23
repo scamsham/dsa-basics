@@ -44,39 +44,44 @@ public:
      * @return: The minimum value among all contiguous cluster maximums
      */
     int solve(int N, int K, const vector<int>& utilization) {
-        // TODO: Implement O(N) Monotonic Queue logic here
         deque<int> dq;
-        int answer = INT_MAX;
+        int result = INT_MAX;
 
-        if(K == 1){
-            return *min_element(utilization.begin(), utilization.end());
-        }
-
+        // 100, 80, 60, 40, 20
+        // i = 0, dq -> 0 
+        // i = 1, dq -> 0, 1
+        // i = 2, dq -> 0, 1, 2 , Since i == K - 1 (2), we store result = 100
+        // i = 3, dq -> 1, 2 (pop from since 0 <= i - K (3 - 3 = 0)), dq -> 1, 2, 3, we store result result = min(100, 80) = 100
+        // .....
+        
         for(int i = 0; i < N; i++){
+            // 1. Make sure that out of index element is not in deque (shrinking from left)
             while(!dq.empty() && dq.front() <= i - K){
                 dq.pop_front();
             }
 
-            while(!dq.empty() && utilization[dq.back()] <= utilization[i])
-            {
+            // 2. Make sure we add the maximum to back of the deque
+            while(!dq.empty() && utilization[dq.back()] <= utilization[i]){
                 dq.pop_back();
             }
 
+            // 3. Push the indexes in the deque
             dq.push_back(i);
 
-            
-            if(i >= K - 1){
-                answer = min(answer, utilization[dq.front()]);
-            }            
+            // 4. Some condition to store answer (min max)
+            if(i >= K - 1){ // 2
+                result = min(result, utilization[dq.front()])
+            }
         }
 
-        return answer; 
+        return result;
     }
 };
 
 // --- Test Harness ---
 int main() {
     Solution sol;
+
 
     // Test Case 1: Standard Example
     // Window Maxes: [50, 70, 70, 70] -> Min: 50
