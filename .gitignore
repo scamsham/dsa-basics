@@ -1,0 +1,21 @@
+# 1. Ignore EVERYTHING (this catches the no-extension binaries)
+*
+
+# 2. Keep directories visible
+!*/
+
+# 3. EXCEPTION: Keep your C++ Source Code
+!*.cpp
+!*.c
+!*.h
+!*.hpp
+!*.cc
+!*.hh
+
+# 4. EXCEPTION: Keep your Build & Config files (CRITICAL)
+!Makefile
+!CMakeLists.txt
+!.gitignore
+!.gitattributes
+!README.md
+!LICENSE
