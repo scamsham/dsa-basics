@@ -108,8 +108,24 @@ using namespace std;
 // TODO: Implement this function
 int getMinInsertion(vector<int> messages) {
     // Write your logic here
-    
-    return 0;
+    int n = messages.size();
+    int insertions = 0;
+    unordered_set<int> count;
+
+    count.insert(0);
+    int sum = 0;
+    for(int i = 0; i < n; i++){
+        sum += messages[i];
+
+        if(count.find(sum) != count.end()){
+            insertions++;
+            count.clear();
+            count.insert(0);
+            sum = messages[i];
+        }
+        count.insert(sum);
+    }
+    return insertions;
 }
 
 int main() {
