@@ -5,7 +5,7 @@ Keywords: "subarray," "substring," "continuous window," "consecutive elements."
 
 /**
 Background 
-Amazon S3 manages billions of objects across various storage clusters. 
+My S3 manages billions of objects across various storage clusters. 
 To ensure high availability, engineers monitor the health scores of instances within these clusters. 
 A "Cluster Group" is defined as a contiguous sequence of K instances.
 

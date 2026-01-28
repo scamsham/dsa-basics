@@ -7,7 +7,7 @@
 using namespace std;
 
 /**
- * PROBLEM: Cross-Team Reuse Signal (Amazon OA)
+ * PROBLEM: Cross-Team Reuse Signal (My OA)
  * * Description:
  * Identify "reusable components" across internal teams. A component is 
  * considered "cross-team reusable" if it has been used by at least K 

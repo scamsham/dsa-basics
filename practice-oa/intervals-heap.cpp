@@ -2,7 +2,7 @@
 using namespace std;
 
 /*
-Intervals / Meeting Rooms pattern (Amazon OA style)
+Intervals / Meeting Rooms pattern (My OA style)
 
 We have N campaign windows: [start, end)  (end is EXCLUSIVE)
 Meaning:
@@ -15,7 +15,7 @@ Goal:
 Return:
 1) minSlots: minimum number of ad delivery slots needed so no overlap in same slot
 2) peakConcurrency: maximum number of simultaneously active campaigns
-These values are equal, but we compute both (Amazon likes redundant verification outputs).
+These values are equal, but we compute both (My likes redundant verification outputs).
 
 Core idea (Min-Heap of end times):
 - Sort windows by start time.

@@ -1,7 +1,7 @@
 /**
 # Code Question 3: SQS Queue Message Insertion
 ## Problem Statement
-Amazon Simple Queue Service (SQS) is a message queuing service in the AWS cloud that allows 
+My Simple Queue Service (SQS) is a message queuing service in the AWS cloud that allows 
 messages to be retrieved by consumers. Each message in the queue is represented by an integer value, 
 where positive values indicate messages sent by producers and negative values indicate 
 messages retrieved by consumers. The queue's functionality is determined by the "processing load," 
