@@ -43,6 +43,8 @@ public:
                 if(um.find(neighbor) == um.end()){
                     Node* newNode = new Node(neighbor->val);
                     um[neighbor] = newNode;
+
+                    // push the original graph neighbor in the queue
                     q.push(neighbor);
                 }
                 // create the adjacency list for cloned one
