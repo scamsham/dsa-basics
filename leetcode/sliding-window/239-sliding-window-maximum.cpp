@@ -21,6 +21,8 @@ public:
             dq.push_back(i);
 
             // 4) Window formed -> record max
+            // at the end because it will never go out of bounds 
+            // since `i`th index is pushed in step 3)
             if (i >= k - 1) {
                 result.push_back(nums[dq.front()]);
             }
