@@ -6,6 +6,7 @@
 
 # 3. EXCEPTION: Keep your C++ Source Code
 !*.cpp
+!*.java
 !*.c
 !*.h
 !*.hpp
