@@ -9,49 +9,49 @@
 class Solution
 {
 public:
+    int dfs(vector<vector<int>> &matrix, int x, int y, int row, int col, vector<vector<int>> &dp)
+    {
+        if (dp[x][y] != 0)
+        {
+            return dp[x][y];
+        }
+
+        int maxPath = 1;
+        int dx[] = {-1, 1, 0, 0};
+        int dy[] = {0, 0, -1, 1};
+
+        for (int k = 0; k < 4; k++)
+        {
+            int nx = x + dx[k];
+            int ny = y + dy[k];
+
+            if (nx >= 0 && ny >= 0 && nx < row && ny < col && matrix[nx][ny] > matrix[x][y])
+            {
+                maxPath = max(maxPath, 1 + dfs(matrix, nx, ny, row, col, dp));
+            }
+        }
+
+        return dp[x][y] = maxPath;
+    }
+
     int longestIncreasingPath(vector<vector<int>> &matrix)
     {
-        // tricky to find the source.
-        int m = matrix.size(), n = matrix[0].size(), length = 0;
+        int m = matrix.size(), n = matrix[0].size();
+        if (matrix.empty())
+        {
+            return 0;
+        }
+
         vector<vector<int>> dp(m, vector<int>(n, 0));
-        vector<vector<bool>> visited(m, vector<bool>(n, false));
-        int dx[] = {-1, 1, 0, 0}, dy[] = {0, 0, -1, 1};
-        queue<pair<int, int>> q;
+        int result = 0;
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
             {
-                q.push({i, j});
-                visited[i][j] = true;
-
-                while (!q.empty())
-                {
-                    pair<int, int> p = q.front();
-                    q.pop();
-                    int x = p.first, y = p.second;
-                    int value = matrix[x][y];
-                    visited[x][y] = true;
-                    for (int k = 0; k < 4; k++)
-                    {
-                        int nx = x + dx[k];
-                        int ny = y + dy[k];
-                        if (nx >= 0 && ny >= 0 && nx < m && ny < n && matrix[nx][ny] > value)
-                        {
-                            if (visited[nx][ny])
-                            {
-                                dp[x][y] = dp[nx][ny] + 1;
-                            }
-                            else
-                            {
-                                q.push({nx, ny});
-                                dp[nx][ny] = 1;
-                            }
-                        }
-                    }
-                }
-                length = max(length, dp[i][j]);
+                result = max(result, dfs(matrix, i, j, m, n, dp));
             }
         }
-        return length + 1;
+
+        return result;
     }
 };
