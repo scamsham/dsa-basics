@@ -12,6 +12,7 @@ public:
 
         int m = s1.length(), n = s2.length();
 
+        // if the string 1 is longer than string 2, no way string s2 can have permutation of s1 in it.
         if (m > n)
         {
             return false;
@@ -28,6 +29,7 @@ public:
         while (right < n)
         {
             char d = s2[right];
+            // increase window size
             right++;
 
             if (um.find(d) != um.end())
@@ -40,7 +42,7 @@ public:
                 }
             }
 
-            // move window from left
+            // shrink window from left to maintain size of string s1
             while (right - left > m)
             {
                 char f = s2[left];
