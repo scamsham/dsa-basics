@@ -16,6 +16,7 @@ class Solution {
         while(right < n){
             char ch = s[right];
             
+            // update the count
             if(um.find(ch) != um.end()){
                 um[ch]--;
                 if(um[ch] == 0){
@@ -23,13 +24,15 @@ class Solution {
                 }
             }
             
+            // shrink the window by moving left pointer
             while(count == 0){
-                
+                // update length
                 if(right - left + 1 < length){
                     length = right - left + 1;
                     start = left;
                 }
                 
+                // check for a match
                 char lch = s[left];
                 if(um.find(lch) != um.end()){
                     if(um[lch] == 0){
