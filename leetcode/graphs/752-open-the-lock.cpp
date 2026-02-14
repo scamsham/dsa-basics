@@ -26,6 +26,8 @@ public:
             if(f == target){
                 return numberOfTurns;
             }
+
+            // This indicates that we have completed one level and we need to increase the number of turns
             if(f == "-1"){
                 if(!q.empty()){
                     q.push("-1");
