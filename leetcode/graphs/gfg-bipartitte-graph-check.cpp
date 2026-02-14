@@ -1,3 +1,7 @@
+/*
+    https://www.geeksforgeeks.org/problems/bipartite-graph/1#
+*/
+
 class Solution {
   public:
     bool isBipartite(int V, vector<vector<int>> &edges) {
