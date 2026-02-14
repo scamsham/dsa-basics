@@ -21,6 +21,8 @@ public:
         while(!q.empty()){
             string f = q.front();
             q.pop();
+
+            // !!!!! IMPORTANT: Don't forget to check for the target 
             if(f == target){
                 return numberOfTurns;
             }
