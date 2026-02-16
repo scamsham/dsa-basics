@@ -1,4 +1,7 @@
 /*
+
+https://www.geeksforgeeks.org/problems/search-a-node-in-bst/1
+
 class Node {
     int data;
     Node *left;
